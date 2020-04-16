@@ -23,6 +23,8 @@ class MoviesController < ApplicationController
       @movies = PgSearch.multisearch(params[:query])
       #SQL
     else
+      @store = Store.all
+      @products = Product.all
       @movies = Movie.all
     end
   end
