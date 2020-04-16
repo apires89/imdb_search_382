@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div id="movies">
+        <%= form_tag movies_path, method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a Movie" %>
+          <%= submit_tag "Go", class: "btn btn-primary" %>
+        <% end %>
+        <% @movies.each do |result| %>
+          <h4><%= result.searchable.title %></h4>
+          <p><%= result.searchable.syllabus %></p>
+          <p>type: <%= result.searchable_type %></p>
+
+        <% end %>
+<!--         <%# @movies.each do |movie| %>
+         <h4><%#= movie.title %></h4>
+         <p><%#= movie.syllabus %></p>
+         <%# end %> -->
+      </div>
+    </div>
+  </div>
+</div>
