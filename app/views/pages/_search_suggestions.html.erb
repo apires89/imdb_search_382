@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Here are Some Movies in our app</h1>
+  <div class="row">
+    <% @movies.all.sample(3).each do |movie| %>
+    <div class="col">
+      <div class="card">
+        <h1><%= movie.title %></h1>
+        <p><%= movie.syllabus %></p>
+      </div>
+    </div>
+    <% end %>
+    <div class="row">
+      <% @tvshows.all.sample(3).each do |tvshow| %>
+      <div class="col">
+        <div class="card">
+          <h1><%= tvshow.title %></h1>
+          <p><%= tvshow.syllabus %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

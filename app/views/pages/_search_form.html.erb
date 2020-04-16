@@ -1,0 +1,8 @@
+
+<%= form_tag search_path, method: :get do %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control",
+  placeholder: "Search the app" %>
+  <%= submit_tag "Go", class: "btn btn-primary" %>
+<% end %>

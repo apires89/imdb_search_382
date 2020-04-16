@@ -3,13 +3,7 @@
   <div class="row">
     <div class="col">
       <div id="search">
-        <%= form_tag search_path, method: :get do %>
-          <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search the app" %>
-          <%= submit_tag "Go", class: "btn btn-primary" %>
-        <% end %>
+        <%= render 'search_form' %>
         <% if @results.present? %>
           <% @results.each do |result| %>
             <h4><%= result.searchable.title %></h4>
@@ -17,33 +11,9 @@
             <p>type: <%= result.searchable_type %></p>
           <% end %>
         <% elsif !params[:query].present? %>
-          <h1>Please search for anything</h1>
+          <%= render 'search_suggestions' %>
         <% else %>
-          <h1>No Results found, Try Again</h1>
-        <div class="container">
-          <h1>Here are Some Movies in our app</h1>
-          <div class="row">
-            <% @movies.all.sample(3).each do |movie| %>
-            <div class="col">
-              <div class="card">
-                <h1><%= movie.title %></h1>
-                <p><%= movie.syllabus %></p>
-              </div>
-            </div>
-            <% end %>
-            <div class="row">
-              <% @tvshows.all.sample(3).each do |tvshow| %>
-              <div class="col">
-                <div class="card">
-                  <h1><%= tvshow.title %></h1>
-                  <p><%= tvshow.syllabus %></p>
-
-                </div>
-              </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
+          <%= render 'search_suggestions' %>
          <% end %>
       </div>
     </div>
